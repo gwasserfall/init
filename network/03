@@ -1,0 +1,5 @@
+#!/bin/bash
+
+wlan=`networksetup -listallhardwareports | awk "f{print;f=0} /Port: 802.11n NIC/{f=1}" | cut -d " " -f 2`
+
+ifconfig $wlan | grep ether | cut -d " " -f 2
